@@ -4,6 +4,7 @@ import { filterPositions } from "../data/filterPositions"
 import { Players } from "./Players"
 import { PositionFilter } from "./PositionFilter"
 import { SearchBar } from "./SearchBar"
+import { db, fyrebase } from "../firebase"
 import styles from "./styles.css"
 const classNames = require("classnames")
 
@@ -16,8 +17,40 @@ class Legarette extends Component {
       filterPositions: filterPositions,
       searchBarText: "",
       draftedIds: [],
-      hideDraftedIds: true
+      hideDraftedIds: false
     }
+  }
+
+  componentWillMount() {
+    this.getInitialData()
+    this.setupListener()
+  }
+
+  getInitialData() {
+    db.collection("drafted")
+      .doc("garrett")
+      .get()
+      .then(doc => {
+        const data = doc.data()
+        const { ids } = data
+
+        this.setState({
+          draftedIds: ids
+        })
+      })
+  }
+
+  setupListener() {
+    const ref = db.collection("drafted").doc("garrett")
+
+    ref.onSnapshot(doc => {
+      const data = doc.data()
+      const { ids } = data
+
+      this.setState({
+        draftedIds: ids
+      })
+    })
   }
 
   draftPlayer = id => {
@@ -30,6 +63,12 @@ class Legarette extends Component {
     this.setState({
       draftedIds
     })
+
+    db.collection("drafted")
+      .doc("garrett")
+      .set({ ids: draftedIds })
+      .then(param => console.log("param", param))
+      .catch(error => console.log("error", error))
   }
 
   unDraftPlayer = id => {
