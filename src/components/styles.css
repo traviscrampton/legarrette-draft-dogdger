@@ -1,31 +1,95 @@
 .appContainer {
-  padding: 20px;
+  padding: 40px;
   background: #fafafa;
+}
+
+.hideDraftedIds .isDrafted {
+  display: none;
+}
+
+.draftedToggle {
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    padding: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .playerCard {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  padding: 5px;
+  padding: 10px;
   background: white;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   cursor: pointer;
+}
+
+.isDrafted {
+  background: #ffcccb;
 }
 
 .positionsFilter {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  max-width: 300px;
 }
 
 .positionChip {
   border: 1px solid #d3d3d3;
-  margin-right: 10px;
   background: white;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 20px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+}
+
+.searchBar {
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  background: white;
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.playerCardPosition {
+  margin-bottom: 10px;
+}
+
+.playerTopRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.searchBar .material-icons {
+  padding-top: 10px;
+  margin-right: 5px;
+}
+
+.playerCardName {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.searchBar input {
+  border: none;
+  font-size: 22px;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
 }
 
 .positionChip.selected {
