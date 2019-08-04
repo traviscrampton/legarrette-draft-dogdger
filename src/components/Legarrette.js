@@ -17,13 +17,14 @@ class Legarette extends Component {
       filterPositions: filterPositions,
       searchBarText: "",
       draftedIds: [],
-      hideDraftedIds: false
+      hideDraftedIds: false,
+      isFocused: false
     }
   }
 
   componentWillMount() {
-    this.getInitialData()
-    this.setupListener()
+    // this.getInitialData()
+    // this.setupListener()
   }
 
   getInitialData() {
@@ -145,6 +146,14 @@ class Legarette extends Component {
     })
   }
 
+  handleBlur = () => {
+    this.setState({ isFocused: false })
+  }
+
+  handleFocus = () => {
+    this.setState({ isFocused: true })
+  }
+
   toggleShowDrafted = () => {
     const { hideDraftedIds } = this.state
 
@@ -167,7 +176,13 @@ class Legarette extends Component {
       <div class={classNames("appContainer", { hideDraftedIds: this.state.hideDraftedIds })}>
         <h1>Legarette Draft Dodger</h1>
         {this.showDraftedToggle()}
-        <SearchBar updateSearchBarText={this.updateSearchBarText} searchBarText={this.state.searchBarText} />
+        <SearchBar
+          updateSearchBarText={this.updateSearchBarText}
+          handleBlur={this.handleBlur}
+          handleFocus={this.handleFocus}
+          isFocused={this.state.isFocused}
+          searchBarText={this.state.searchBarText}
+        />
         <PositionFilter positions={this.state.filterPositions} toggleFilter={this.toggleFilter} />
         <Players
           players={this.getPlayers()}
