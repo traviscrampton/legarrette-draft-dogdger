@@ -167,7 +167,7 @@ class Legarette extends Component {
     const text = this.state.hideDraftedIds ? "Show Drafted Players" : "Hide Drafted Players"
     return (
       <div className={classNames("draftedToggle", { hideDrafted: !this.state.hideDraftedIds}) } onClick={this.toggleShowDrafted}>
-        <div>{text}</div>
+        <div>{text} ({this.state.draftedIds.length})</div>
       </div>
     )
   }
