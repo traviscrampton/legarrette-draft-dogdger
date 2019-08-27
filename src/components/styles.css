@@ -1,11 +1,27 @@
+body {
+  font-family: 'Roboto Mono', monospace;
+}
+
 .appContainer {
   padding: 40px;
   padding-top: 20px;
-  background: #fafafa;
+  /*background: #fafafa;*/
 }
 
 .appContainer h1 {
   margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.legarrettelogo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.hideDrafted {
+  background: #ffcccb;
 }
 
 .hideDraftedIds .isDrafted {
@@ -102,6 +118,8 @@ input:focus {
 
 .positionChip.selected {
   /*background: #77dd77;*/
-  background: lightgray;
+  background: #72AAFF;
+  color: white;
+  border-color: #72AAFF;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.78);
 }

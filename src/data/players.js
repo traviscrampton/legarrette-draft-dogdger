@@ -8835,31 +8835,5 @@ export const players = [
         Avg: 466.5,
         "Std Dev": 14.5,
         ADP: null
-    },
-    {
-        Id: null,
-        Tier: null,
-        name: "",
-        Team: "",
-        PosRank: "",
-        Bye: null,
-        Best: null,
-        Worst: null,
-        Avg: null,
-        "Std Dev": null,
-        ADP: null
-    },
-    {
-        Id: null,
-        Tier: null,
-        name: "",
-        Team: "",
-        PosRank: "",
-        Bye: null,
-        Best: null,
-        Worst: null,
-        Avg: null,
-        "Std Dev": null,
-        ADP: null
     }
 ]

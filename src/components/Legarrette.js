@@ -5,6 +5,7 @@ import { Players } from "./Players"
 import { PositionFilter } from "./PositionFilter"
 import { SearchBar } from "./SearchBar"
 import { db, fyrebase } from "../firebase"
+import legarrettelogo from "../legarrettelogo.png"
 import styles from "./styles.css"
 const classNames = require("classnames")
 
@@ -23,8 +24,8 @@ class Legarette extends Component {
   }
 
   componentWillMount() {
-    // this.getInitialData()
-    // this.setupListener()
+    this.getInitialData()
+    this.setupListener()
   }
 
   getInitialData() {
@@ -165,7 +166,7 @@ class Legarette extends Component {
   showDraftedToggle() {
     const text = this.state.hideDraftedIds ? "Show Drafted Players" : "Hide Drafted Players"
     return (
-      <div className="draftedToggle" onClick={this.toggleShowDrafted}>
+      <div className={classNames("draftedToggle", { hideDrafted: !this.state.hideDraftedIds}) } onClick={this.toggleShowDrafted}>
         <div>{text}</div>
       </div>
     )
@@ -174,8 +175,10 @@ class Legarette extends Component {
   render() {
     return (
       <div class={classNames("appContainer", { hideDraftedIds: this.state.hideDraftedIds })}>
-        <h1>Legarette Draft Dodger</h1>
-        {this.showDraftedToggle()}
+        <h1>
+          <img src={legarrettelogo} className="legarrettelogo"/>
+          Federation Legarett
+        </h1>
         <SearchBar
           updateSearchBarText={this.updateSearchBarText}
           handleBlur={this.handleBlur}
@@ -183,6 +186,7 @@ class Legarette extends Component {
           isFocused={this.state.isFocused}
           searchBarText={this.state.searchBarText}
         />
+        {this.showDraftedToggle()}
         <PositionFilter positions={this.state.filterPositions} toggleFilter={this.toggleFilter} />
         <Players
           players={this.getPlayers()}
