@@ -3152,7 +3152,7 @@ export const players = [
     {
         Id: 211,
         Tier: 10,
-        name: "FId Gore",
+        name: "Frank Gore",
         Team: "Buffalo Bills",
         Position: "Running Back",
         FilterKey: "RB",

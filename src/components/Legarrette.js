@@ -177,7 +177,7 @@ class Legarette extends Component {
       <div class={classNames("appContainer", { hideDraftedIds: this.state.hideDraftedIds })}>
         <h1>
           <img src={legarrettelogo} className="legarrettelogo"/>
-          Federation Legarett
+          Federation Legarrett
         </h1>
         <SearchBar
           updateSearchBarText={this.updateSearchBarText}
