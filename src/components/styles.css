@@ -58,6 +58,10 @@ body {
   max-width: 300px;
 }
 
+.lastDraftedPlayer {
+  margin-bottom: 20px;
+}
+
 .positionChip {
   border: 1px solid #d3d3d3;
   background: white;

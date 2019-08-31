@@ -163,11 +163,33 @@ class Legarette extends Component {
     })
   }
 
+  getLastPlayer = () => {
+    let lastId = this.state.draftedIds[this.state.draftedIds.length - 1]
+    return this.state.players.find(player => {
+      return player.Id === lastId
+    })
+  }
+
+  lastDraftedPlayer = () => {
+    if (this.state.draftedIds.length === 0) return
+    let lastPlayer = this.getLastPlayer()
+
+    return (
+      <div className="lastDraftedPlayer">
+        Last Drafted: {lastPlayer.name}, {lastPlayer.FilterKey}
+      </div>
+    )
+  }
+
   showDraftedToggle() {
     const text = this.state.hideDraftedIds ? "Show Drafted Players" : "Hide Drafted Players"
     return (
-      <div className={classNames("draftedToggle", { hideDrafted: !this.state.hideDraftedIds}) } onClick={this.toggleShowDrafted}>
-        <div>{text} ({this.state.draftedIds.length})</div>
+      <div
+        className={classNames("draftedToggle", { hideDrafted: !this.state.hideDraftedIds })}
+        onClick={this.toggleShowDrafted}>
+        <div>
+          {text} ({this.state.draftedIds.length})
+        </div>
       </div>
     )
   }
@@ -176,7 +198,7 @@ class Legarette extends Component {
     return (
       <div class={classNames("appContainer", { hideDraftedIds: this.state.hideDraftedIds })}>
         <h1>
-          <img src={legarrettelogo} className="legarrettelogo"/>
+          <img src={legarrettelogo} className="legarrettelogo" />
           Federation Legarrett
         </h1>
         <SearchBar
@@ -188,6 +210,7 @@ class Legarette extends Component {
         />
         {this.showDraftedToggle()}
         <PositionFilter positions={this.state.filterPositions} toggleFilter={this.toggleFilter} />
+        {this.lastDraftedPlayer()}
         <Players
           players={this.getPlayers()}
           draftPlayer={this.draftPlayer}
