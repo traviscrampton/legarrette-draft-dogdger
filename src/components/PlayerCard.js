@@ -8,9 +8,7 @@ export const PlayerCard = props => {
     <div class={classNames("playerCard", { isDrafted: isDrafted })} onClick={() => props.draftPlayer(Id)}>
       <div className="playerTopRow">
         <h3 class="playerCardName">{name}</h3>
-        <div class="playerCardPosRank">
-          {PosRank} {"\u2022"} Tier {Tier}
-        </div>
+        <div class="playerCardPosRank" />
       </div>
       <div class="playerCardPosition">{Position}</div>
       <div class="playerCardTeam">{Team}</div>
