@@ -183,6 +183,7 @@ class Legarette extends Component {
 
   showDraftedToggle() {
     const text = this.state.hideDraftedIds ? "Show Drafted Players" : "Hide Drafted Players"
+    console.log(this.state.draftedIds)
     return (
       <div
         className={classNames("draftedToggle", { hideDrafted: !this.state.hideDraftedIds })}
